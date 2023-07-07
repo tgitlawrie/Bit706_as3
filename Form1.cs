@@ -10,11 +10,32 @@ using System.Windows.Forms;
 
 namespace Bit706_as2
 {
-    public partial class Form1 : Form
+    public partial class ParentForm : Form
     {
-        public Form1()
+        static CustomerController customerController = new CustomerController();
+        public ParentForm()
         {
             InitializeComponent();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+
+            string message = "Are you sure you want to exit?";
+            string title = "Confirm Close?";
+
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                return;
+            }
+
         }
     }
 }

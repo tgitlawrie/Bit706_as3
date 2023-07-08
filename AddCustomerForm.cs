@@ -31,7 +31,10 @@ namespace Bit706_as2
         {
             string firstName = txtFname.Text;
             string lastName = txtLname.Text;
-            if(customerController.AddCustomer(firstName, lastName)){
+            if (!customerController.AddCustomer(firstName, lastName)){
+                MessageBox.Show(customerController.ErrorMessage);
+                return;
+            }
                 //do the things
                 this.Hide();
                 ManageCustomers manageCustomers = new ManageCustomers();
@@ -39,12 +42,7 @@ namespace Bit706_as2
                 manageCustomers.Location = this.Location;
                 manageCustomers.ShowDialog();
                 this.Close();
-            }
-            else
-            {
-                //dont do the things
-            }
-            
+                             
         }
     }
 }

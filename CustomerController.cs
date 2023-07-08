@@ -17,8 +17,15 @@ namespace Bit706_as2
         public bool AddCustomer(string firstName, string lastName)
         {
             //do the things
+            try
+            {
             customerList.Add(new Customer(firstName, lastName));
             return true;
+            }catch (Exception e)
+            {
+                errorMessage = e.Message;
+                return false;
+            }
         }
 
         public bool FindCustomerByName(string name)

@@ -19,8 +19,18 @@ namespace Bit706_as2
         }
 
         public Customer(string firstName, string lastName) :this() {
+            //validate
+            firstName = firstName.Trim().ToLower();//trim trailing and leading spaces and force lowercase
+            lastName = lastName.Trim().ToLower();
+            if(firstName == "" || lastName == "")
+            {
+                throw new Exception("You must enter a first and last name!");
+            }
+            else
+            { 
             this.firstName = firstName;
             this.lastName = lastName;
+            }
         }
 
         //returns the customers information

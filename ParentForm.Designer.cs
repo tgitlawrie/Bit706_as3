@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMain = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnMain = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,23 +47,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(602, 67);
+            this.panel1.Size = new System.Drawing.Size(484, 67);
             this.panel1.TabIndex = 0;
-            // 
-            // btnMain
-            // 
-            this.btnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMain.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
-            this.btnMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
-            this.btnMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lavender;
-            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMain.Location = new System.Drawing.Point(443, 22);
-            this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(75, 23);
-            this.btnMain.TabIndex = 2;
-            this.btnMain.Text = "Main Menu";
-            this.btnMain.UseVisualStyleBackColor = true;
-            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
             // btnExit
             // 
@@ -72,7 +57,7 @@
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lavender;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(524, 22);
+            this.btnExit.Location = new System.Drawing.Point(406, 22);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 1;
@@ -96,27 +81,42 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 361);
+            this.panel2.Location = new System.Drawing.Point(0, 379);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(602, 32);
+            this.panel2.Size = new System.Drawing.Size(484, 32);
             this.panel2.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(208, 10);
+            this.label1.Location = new System.Drawing.Point(149, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "©2023 ProtoBank. All Rights reserved";
+            // 
+            // btnMain
+            // 
+            this.btnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMain.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            this.btnMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
+            this.btnMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lavender;
+            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMain.Location = new System.Drawing.Point(325, 22);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(75, 23);
+            this.btnMain.TabIndex = 2;
+            this.btnMain.Text = "Main Menu";
+            this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
             // ParentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(602, 393);
+            this.ClientSize = new System.Drawing.Size(484, 411);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ParentForm";
@@ -136,7 +136,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label3;
-        protected System.Windows.Forms.Button btnMain;
+        private System.Windows.Forms.Button btnMain;
     }
 }
 

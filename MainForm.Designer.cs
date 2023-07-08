@@ -39,7 +39,7 @@
             this.btnManage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lavender;
             this.btnManage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
             this.btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManage.Location = new System.Drawing.Point(180, 191);
+            this.btnManage.Location = new System.Drawing.Point(165, 181);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(187, 77);
             this.btnManage.TabIndex = 2;
@@ -51,7 +51,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 425);
+            this.ClientSize = new System.Drawing.Size(484, 411);
             this.Controls.Add(this.btnManage);
             this.Name = "MainForm";
             this.Text = "MainForm";

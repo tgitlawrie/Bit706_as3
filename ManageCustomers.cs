@@ -16,5 +16,16 @@ namespace Bit706_as2
         {
             InitializeComponent();
         }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddCustomerForm addCustomerForm = new AddCustomerForm();
+            addCustomerForm.StartPosition = FormStartPosition.Manual;
+            addCustomerForm.Location = this.Location;
+            addCustomerForm.ShowDialog();
+            this.Close();
+
+        }
     }
 }

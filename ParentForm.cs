@@ -15,7 +15,16 @@ namespace Bit706_as2
         static CustomerController customerController = new CustomerController();
         public ParentForm()
         {
-            InitializeComponent();    
+            InitializeComponent();
+            //check if current form is MainForm and hide main menu button
+            if (this.GetType() == typeof(MainForm))
+            {
+                btnMain.Visible = false;
+            }
+            else
+            {
+                btnMain.Visible = true;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

@@ -13,24 +13,21 @@ namespace Bit706_as2
         private string firstName;
         private string lastName;
 
-        public Customer() {
+        public Customer(string firstName, string lastName)
+        {
+            firstName = firstName.Trim().ToLower();
+            lastName = lastName.Trim().ToLower();
+
+            if (firstName == "") { throw new Exception("You must enter a first name!"); }
+
+            if (lastName == "") { throw new Exception("You must enter a last name!"); }
+
+            //id generation placed here instead of using overloaded constructors
+            //to ensure id numbers are only assigned to valid customers
             iD = nextID;
             nextID++;
-        }
-
-        public Customer(string firstName, string lastName) :this() {
-            //validate
-            firstName = firstName.Trim().ToLower();//trim trailing and leading spaces and force lowercase
-            lastName = lastName.Trim().ToLower();
-            if(firstName == "" || lastName == "")
-            {
-                throw new Exception("You must enter a first and last name!");
-            }
-            else
-            { 
             this.firstName = firstName;
             this.lastName = lastName;
-            }
         }
 
         //returns the customers information

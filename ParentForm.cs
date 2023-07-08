@@ -15,7 +15,7 @@ namespace Bit706_as2
         static CustomerController customerController = new CustomerController();
         public ParentForm()
         {
-            InitializeComponent();
+            InitializeComponent();    
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -36,6 +36,16 @@ namespace Bit706_as2
                 return;
             }
 
+        }
+
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.StartPosition = FormStartPosition.Manual;
+            mainForm.Location = this.Location;
+            mainForm.ShowDialog();
+            this.Close();
         }
     }
 }

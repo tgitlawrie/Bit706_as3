@@ -16,7 +16,7 @@ namespace Bit706_as2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ParentForm());
+            Application.Run(new MainForm());
         }
     }
 }

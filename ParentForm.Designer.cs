@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMain = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,6 +41,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
+            this.panel1.Controls.Add(this.btnMain);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -47,6 +49,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(602, 67);
             this.panel1.TabIndex = 0;
+            // 
+            // btnMain
+            // 
+            this.btnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMain.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            this.btnMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
+            this.btnMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lavender;
+            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMain.Location = new System.Drawing.Point(443, 22);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(75, 23);
+            this.btnMain.TabIndex = 2;
+            this.btnMain.Text = "Main Menu";
+            this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
             // btnExit
             // 
@@ -119,6 +136,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label3;
+        protected System.Windows.Forms.Button btnMain;
     }
 }
 

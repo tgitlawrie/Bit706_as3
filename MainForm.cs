@@ -15,13 +15,11 @@ namespace Bit706_as2
         public MainForm()
         {
             InitializeComponent();
-            //btnMain.Visible = false;
         }
 
         private void btnManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //btnMain.Visible=true;
 
             ManageCustomers manageCustomers = new ManageCustomers();
             manageCustomers.StartPosition = FormStartPosition.Manual;

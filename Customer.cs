@@ -8,7 +8,7 @@ namespace Bit706_as2
 {
     public class Customer
     {
-        private int nextID = 1;
+        private static int nextID = 1;
         private int iD;
         private string firstName;
         private string lastName;
@@ -28,5 +28,7 @@ namespace Bit706_as2
         {
             return iD.ToString() + " | " + firstName + " " + lastName;
         }
+
+        public override string ToString() { return firstName + " " + lastName; }
     }
 }

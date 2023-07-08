@@ -15,6 +15,16 @@ namespace Bit706_as2
         public ManageCustomers()
         {
             InitializeComponent();
+            DisplayCustomers();
+        }
+
+        public void DisplayCustomers()
+        {
+            lstCustomers.Items.Clear();
+            foreach (Customer c in customerController.customerList)
+            {
+                lstCustomers.Items.Add(c.CustomerInfo());
+            }
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)

@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace Bit706_as2
 {
-    class CustomerController
+    public class CustomerController
     {
         private string errorMessage;
 
         public string ErrorMessage { get => errorMessage; set => errorMessage = value; }
 
-        private List<Customer> customerList = new List<Customer>();
+        public List<Customer> customerList = new List<Customer>();
 
         public bool AddCustomer(string firstName, string lastName)
         {
             //do the things
-            return false;
+            customerList.Add(new Customer(firstName, lastName));
+            return true;
         }
 
         public bool FindCustomerByName(string name)

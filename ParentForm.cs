@@ -12,7 +12,7 @@ namespace Bit706_as2
 {
     public partial class ParentForm : Form
     {
-        static CustomerController customerController = new CustomerController();
+        protected static CustomerController customerController = new CustomerController();
         public ParentForm()
         {
             InitializeComponent();

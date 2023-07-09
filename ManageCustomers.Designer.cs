@@ -82,6 +82,7 @@
             this.bntDeleteCustomer.TabIndex = 5;
             this.bntDeleteCustomer.Text = "Delete Selected Customer";
             this.bntDeleteCustomer.UseVisualStyleBackColor = true;
+            this.bntDeleteCustomer.Click += new System.EventHandler(this.bntDeleteCustomer_Click);
             // 
             // lstCustomers
             // 

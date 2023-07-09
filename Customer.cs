@@ -16,10 +16,12 @@ namespace Bit706_as2
 
         public Customer(string firstName, string lastName)
         {
-            int nameMaxLength = 20;
-            bool containsOnlyLetters = Regex.IsMatch(firstName + lastName, @"^[a-zA-Z]+$");
             firstName = firstName.Trim().ToLower();
             lastName = lastName.Trim().ToLower();
+
+            int nameMaxLength = 20;
+            bool containsOnlyLetters = Regex.IsMatch(firstName + lastName, @"^[a-zA-Z]+$");
+            
 
             //validation guard clauses
             if (firstName == "") { throw new Exception("You must enter a first name!"); }
@@ -41,6 +43,10 @@ namespace Bit706_as2
             this.firstName = firstName;
             this.lastName = lastName;
         }
+
+        public int ID { get => iD; set => iD = value; }
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
 
         //returns the customers information
         public string CustomerInfo()

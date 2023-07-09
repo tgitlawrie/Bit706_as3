@@ -28,9 +28,20 @@ namespace Bit706_as2
             }
         }
 
-        public bool FindCustomerByName(string name)
+        public Customer FindCustomerByName(string name)
         {
-            return false;
+            string[] inputs = name.Split('|'); //seperates the id number from the name
+            int id = int.Parse(inputs[0]); //grab the id number from the inputs array
+            string firstName = inputs[1].Split(' ')[1]; //split first name from input array
+            string lastName = inputs[1].Split(' ')[2]; //split lastname from input array
+
+            Customer foundCustomer = customerList.FirstOrDefault(c => c.FirstName == firstName);
+            if(foundCustomer != null)
+            {
+                return foundCustomer;
+            }
+            
+            return null;
         }
 
         public bool EditCustomer(string firstName, string lastName)
@@ -38,9 +49,19 @@ namespace Bit706_as2
             return false;
         }
 
-        public bool DeleteCustomer(string firstName, string lastName)
+        public bool DeleteCustomer(Customer customer)
         {
-            return false;
+            try
+            {
+                customerList.Remove(customer);
+                return true;
+            }
+            catch (Exception e)
+            {
+                errorMessage = ($"Customer not found\n{e.Message}");
+                return false;
+            }
+          
         }
     }
 }

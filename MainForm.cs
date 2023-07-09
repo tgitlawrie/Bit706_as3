@@ -20,12 +20,10 @@ namespace Bit706_as2
         private void btnManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-
             ManageCustomers manageCustomers = new ManageCustomers();
             manageCustomers.StartPosition = FormStartPosition.Manual;
             manageCustomers.Location = this.Location;
             manageCustomers.ShowDialog();
-
             this.Close();
         }
     }

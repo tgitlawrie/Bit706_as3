@@ -66,6 +66,7 @@
             this.bntEditCustomer.TabIndex = 4;
             this.bntEditCustomer.Text = "Edit Selected Customer";
             this.bntEditCustomer.UseVisualStyleBackColor = true;
+            this.bntEditCustomer.Click += new System.EventHandler(this.bntEditCustomer_Click);
             // 
             // bntDeleteCustomer
             // 

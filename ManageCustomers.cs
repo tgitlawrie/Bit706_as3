@@ -40,23 +40,24 @@ namespace Bit706_as2
 
         private void bntDeleteCustomer_Click(object sender, EventArgs e)
         {
-            if(lstCustomers.SelectedItems.Count <= 0 ) { 
-                MessageBox.Show("please select a customer");
-                return;
-            }
-            Customer customer = customerController.FindCustomerByName(lstCustomers.SelectedItem.ToString()); //need to check this
+            //check a customer was selected
+            if (!IsCustomerSelected()) return;
+
+            //retrieve customer
+            Customer customer = GetCustomer();
+            
             if (customer == null)
             {
                 MessageBox.Show("Error, Customer not found");
                 return;
             }
 
+
+            //confirmation dialog
             string message = $"Are you sure you want to delete {customer.FirstName} {customer.LastName}";
             string title = "Confirm Close?";
-
             MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
             DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
-
             if (result == DialogResult.OK)
             {
                 customerController.DeleteCustomer(customer);
@@ -66,6 +67,43 @@ namespace Bit706_as2
             {
                 return;
             }
+        }
+
+        private void bntEditCustomer_Click(object sender, EventArgs e)
+        {
+            //check a customer was selected
+            if (!IsCustomerSelected()) return;
+
+            //retrieve customer
+            Customer customer = GetCustomer();
+            if (customer == null)
+            {
+                MessageBox.Show("Error, Customer not found");
+                return;
+            }
+
+            //call edit customer form
+            this.Hide();
+            EditCustomer editCustomerForm = new EditCustomer(customer);
+            editCustomerForm.StartPosition = FormStartPosition.Manual;
+            editCustomerForm.Location = this.Location;
+            editCustomerForm.ShowDialog();
+            this.Close();
+        }
+
+        private bool IsCustomerSelected()
+        {
+            if (lstCustomers.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("please select a customer");
+                return false;
+            }
+            return true;
+        }
+        private Customer GetCustomer()
+        {
+            Customer customer = customerController.FindCustomerByID(lstCustomers.SelectedItem.ToString());
+            return customer;
         }
     }
 }

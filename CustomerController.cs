@@ -19,33 +19,42 @@ namespace Bit706_as2
             //do the things
             try
             {
-            customerList.Add(new Customer(firstName, lastName));
-            return true;
-            }catch (Exception e)
+                customerList.Add(new Customer(firstName, lastName));
+                return true;
+            }
+            catch (Exception e)
             {
                 errorMessage = e.Message;
                 return false;
             }
         }
 
-        public Customer FindCustomerByName(string name)
+        public Customer FindCustomerByID(string customer)
         {
-            string[] inputs = name.Split('|'); //seperates the id number from the name
+            string[] inputs = customer.Split('|'); //seperates the id number from the name
             int id = int.Parse(inputs[0]); //grab the id number from the inputs array
-            string firstName = inputs[1].Split(' ')[1]; //split first name from input array
-            string lastName = inputs[1].Split(' ')[2]; //split lastname from input array
+            //string firstName = inputs[1].Split(' ')[1]; //split first name from input array
+            //string lastName = inputs[1].Split(' ')[2]; //split lastname from input array
 
-            Customer foundCustomer = customerList.FirstOrDefault(c => c.FirstName == firstName);
-            if(foundCustomer != null)
+            Customer foundCustomer = customerList.FirstOrDefault(c => c.ID == id);
+            if (foundCustomer != null)
             {
                 return foundCustomer;
             }
-            
+
             return null;
         }
 
-        public bool EditCustomer(string firstName, string lastName)
+        public bool EditCustomer(Customer customer)
         {
+
+            Customer foundCustomer = customerList.FirstOrDefault(c => c.ID == customer.ID);
+            if (foundCustomer != null)
+            {
+                foundCustomer.FirstName = customer.FirstName;
+                foundCustomer.LastName = customer.LastName;
+                return true;
+            }
             return false;
         }
 
@@ -61,7 +70,7 @@ namespace Bit706_as2
                 errorMessage = ($"Customer not found\n{e.Message}");
                 return false;
             }
-          
+
         }
     }
 }

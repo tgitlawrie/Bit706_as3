@@ -14,28 +14,15 @@ namespace Bit706_as2
         private string firstName;
         private string lastName;
 
+        private CustomerValidator validator = new CustomerValidator();
+
         public Customer(string firstName, string lastName)
         {
-            firstName = firstName.Trim().ToLower();
-            lastName = lastName.Trim().ToLower();
+           
 
-            int nameMaxLength = 20;
-            bool containsOnlyLetters = Regex.IsMatch(firstName + lastName, @"^[a-zA-Z]+$");
-            
-
-            //validation guard clauses
-            if (firstName == "") { throw new Exception("You must enter a first name!"); }
-            if (lastName == "") { throw new Exception("You must enter a last name!"); }
-            if (firstName.Length > nameMaxLength)
-            {
-                throw new Exception($"First name must be less than {nameMaxLength} characters long");
-            }
-            if (lastName.Length > nameMaxLength)
-            {
-                throw new Exception($"Last name must be less than {nameMaxLength} characters long");
-            }
-            if (!containsOnlyLetters) { throw new Exception("Customer name must not have special characters or numbers"); }
-
+            //validate customer name before creating
+            validator.ValidateName(firstName, lastName);
+           
             //id generation placed here instead of using overloaded constructors
             //to ensure id numbers are only assigned to valid customers
             iD = nextID;

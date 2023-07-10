@@ -13,12 +13,15 @@ namespace Bit706_as2
         public string ErrorMessage { get => errorMessage; set => errorMessage = value; }
 
         public List<Customer> customerList = new List<Customer>();
+        private CustomerValidator validator = new CustomerValidator();
 
         public bool AddCustomer(string firstName, string lastName)
         {
-            //do the things
+            firstName = firstName.Trim().ToLower();
+            lastName = lastName.Trim().ToLower();
             try
             {
+                validator.ValidateName(firstName, lastName);
                 customerList.Add(new Customer(firstName, lastName));
                 return true;
             }
@@ -33,8 +36,6 @@ namespace Bit706_as2
         {
             string[] inputs = customer.Split('|'); //seperates the id number from the name
             int id = int.Parse(inputs[0]); //grab the id number from the inputs array
-            //string firstName = inputs[1].Split(' ')[1]; //split first name from input array
-            //string lastName = inputs[1].Split(' ')[2]; //split lastname from input array
 
             Customer foundCustomer = customerList.FirstOrDefault(c => c.ID == id);
             if (foundCustomer != null)
@@ -47,15 +48,22 @@ namespace Bit706_as2
 
         public bool EditCustomer(Customer customer)
         {
-
             Customer foundCustomer = customerList.FirstOrDefault(c => c.ID == customer.ID);
-            if (foundCustomer != null)
+            if (foundCustomer == null) { return false; }
+            try
             {
+                //validate name
+                validator.ValidateName(customer.FirstName, customer.LastName);
+
                 foundCustomer.FirstName = customer.FirstName;
                 foundCustomer.LastName = customer.LastName;
                 return true;
             }
-            return false;
+            catch (Exception e)
+            {
+                errorMessage = e.Message;
+                return false;
+            }
         }
 
         public bool DeleteCustomer(Customer customer)

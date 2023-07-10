@@ -15,6 +15,7 @@ namespace Bit706_as2
         private Customer customer;
         private string oldFname;
         private string oldLname;
+        private int ID;
         public EditCustomer(Customer customer)
         {
             InitializeComponent();
@@ -22,8 +23,9 @@ namespace Bit706_as2
             txtEditFname.Text = customer.FirstName;
             txtEditLname.Text = customer.LastName;
 
-            oldFname = customer.FirstName;
-            oldLname = customer.LastName;
+            this.oldFname = customer.FirstName;
+            this.oldLname = customer.LastName;
+            this.ID = customer.ID;
         }
 
         private void btnEditCancel_Click(object sender, EventArgs e)

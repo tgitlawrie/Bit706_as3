@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerController.cs" />
+    <Compile Include="CustomerValidator.cs" />
     <Compile Include="EditCustomer.cs">
       <SubType>Form</SubType>
     </Compile>

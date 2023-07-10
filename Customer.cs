@@ -14,17 +14,8 @@ namespace Bit706_as2
         private string firstName;
         private string lastName;
 
-        private CustomerValidator validator = new CustomerValidator();
-
         public Customer(string firstName, string lastName)
-        {
-           
-
-            //validate customer name before creating
-            validator.ValidateName(firstName, lastName);
-           
-            //id generation placed here instead of using overloaded constructors
-            //to ensure id numbers are only assigned to valid customers
+        {                       
             iD = nextID;
             nextID++;
             this.firstName = firstName;

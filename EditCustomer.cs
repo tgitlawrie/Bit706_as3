@@ -13,19 +13,18 @@ namespace Bit706_as2
     public partial class EditCustomer : ParentForm
     {
         private Customer customer;
-        private string oldFname;
-        private string oldLname;
-        private int ID;
+      
         public EditCustomer(Customer customer)
         {
             InitializeComponent();
             this.customer = customer;
             txtEditFname.Text = customer.FirstName;
             txtEditLname.Text = customer.LastName;
-
-            this.oldFname = customer.FirstName;
-            this.oldLname = customer.LastName;
-            this.ID = customer.ID;
+            txtAddress.Text = customer.Address;
+            txtCity.Text = customer.City;
+            txtPhone.Text = customer.Phone;
+            txtEmail.Text = customer.Email;
+            chkStaff.Checked = customer.IsStaff;
         }
 
         private void btnEditCancel_Click(object sender, EventArgs e)
@@ -42,6 +41,7 @@ namespace Bit706_as2
         {
             customer.FirstName = txtEditFname.Text;
             customer.LastName = txtEditLname.Text;
+            
 
             if (!customerController.EditCustomer(customer))
             {
@@ -49,7 +49,7 @@ namespace Bit706_as2
                 return;
             }
 
-            string message = $"Successfully updated {oldFname} {oldLname} to {customer.FirstName} {customer.LastName}";
+            string message = $"Successfully updated {customer.FirstName} {customer.LastName}'s records";
             string title = "Update Success";
             MessageBox.Show(message, title);
 

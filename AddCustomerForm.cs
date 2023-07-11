@@ -31,7 +31,12 @@ namespace Bit706_as2
         {
             string firstName = txtFname.Text;
             string lastName = txtLname.Text;
-            if (!customerController.AddCustomer(firstName, lastName))
+            string email = txtEmail.Text;
+            string phone = txtPhone.Text;
+            string city = txtCity.Text;
+            string address = txtAddress.Text;
+            bool isStaff = chkStaff.Checked;
+            if (!customerController.AddCustomer(firstName, lastName,address,city,phone,email, isStaff))
             {
                 MessageBox.Show(customerController.ErrorMessage);
                 return;

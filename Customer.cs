@@ -9,22 +9,51 @@ namespace Bit706_as2
 {
     public class Customer
     {
-        private static int nextID = 1;
-        private int iD;
-        private string firstName;
-        private string lastName;
+        protected static int nextID = 1;
+        protected int iD;
+        protected string firstName;
+        protected string lastName;
 
-        public Customer(string firstName, string lastName)
-        {                       
+        //added below this line
+        private string address;
+        private string city;
+        private string phone;
+        private string email;
+        private bool isStaff = false;
+
+        public Customer() {
             iD = nextID;
             nextID++;
+        }
+        // just this one constructor for all the fields as they are all required.
+        public Customer(
+            string firstName, 
+            string lastName, 
+            string address, 
+            string city, 
+            string phone, 
+            string email,
+            bool isStaff
+            ) : this()
+        {                          
             this.firstName = firstName;
             this.lastName = lastName;
+            this.address = address;
+            this.city = city;
+            this.phone = phone;
+            this.email = email;
+            this.isStaff = isStaff;
         }
+
 
         public int ID { get => iD; set => iD = value; }
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
+        public string Address { get => address; set => address = value; }
+        public string City { get => city; set => city = value; }
+        public string Phone { get => phone; set => phone = value; }
+        public string Email { get => email; set => email = value; }
+        public bool IsStaff { get => isStaff; set => isStaff = value; }
 
         //returns the customers information
         public string CustomerInfo()

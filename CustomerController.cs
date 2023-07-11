@@ -15,14 +15,15 @@ namespace Bit706_as2
         public List<Customer> customerList = new List<Customer>();
         private CustomerValidator validator = new CustomerValidator();
 
-        public bool AddCustomer(string firstName, string lastName)
+        public bool AddCustomer(string firstName, string lastName, string address, string city, string phone, string email, bool isStaff)
         {
             firstName = firstName.Trim().ToLower();
             lastName = lastName.Trim().ToLower();
             try
             {
                 validator.ValidateName(firstName, lastName);
-                customerList.Add(new Customer(firstName, lastName));
+                //TODO validate the rest of these things
+                customerList.Add(new Customer(firstName, lastName, address, city, phone, email, isStaff));
                 return true;
             }
             catch (Exception e)

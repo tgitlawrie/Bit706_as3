@@ -41,6 +41,11 @@ namespace Bit706_as2
         {
             customer.FirstName = txtEditFname.Text;
             customer.LastName = txtEditLname.Text;
+            customer.Address = txtAddress.Text;
+            customer.City = txtCity.Text;
+            customer.Phone = txtPhone.Text;
+            customer.Email = txtEmail.Text;
+            customer.IsStaff = chkStaff.Checked;
             
 
             if (!customerController.EditCustomer(customer))

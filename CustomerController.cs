@@ -22,6 +22,10 @@ namespace Bit706_as2
             try
             {
                 validator.ValidateName(firstName, lastName);
+                validator.ValidateAddress(address);
+                validator.ValidateCity(city);
+                validator.ValidatePhone(phone);
+                validator.ValidateEmail(email);
                 //TODO validate the rest of these things
                 customerList.Add(new Customer(firstName, lastName, address, city, phone, email, isStaff));
                 return true;
@@ -55,9 +59,18 @@ namespace Bit706_as2
             {
                 //validate name
                 validator.ValidateName(customer.FirstName, customer.LastName);
+                validator.ValidateAddress(customer.Address);
+                validator.ValidateCity(customer.City);
+                validator.ValidatePhone(customer.Phone);
+                validator.ValidateEmail(customer.Email);
 
                 foundCustomer.FirstName = customer.FirstName;
                 foundCustomer.LastName = customer.LastName;
+                foundCustomer.Address = customer.Address;
+                foundCustomer.City = customer.City;
+                foundCustomer.Phone = customer.Phone;
+                foundCustomer.Email = customer.Email;
+                foundCustomer.IsStaff = customer.IsStaff;
                 return true;
             }
             catch (Exception e)

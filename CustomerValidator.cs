@@ -10,22 +10,64 @@ namespace Bit706_as2
     internal class CustomerValidator
     {
         private const int nameMaxLength = 20;
-        
+        private const int addressMaxLength = 50;
+
         public void ValidateName(string firstName, string lastName)
         {
-            IsFirstNameEmpty(firstName);
-            IsLastNameEmpty(lastName);
+            IsEmpty(firstName, "First Name");
+            IsEmpty(lastName, "Last Name");
             IsFirstNameTooLong(firstName);
             IsLastNameTooLong(lastName);
-            NameContainsOnlyLetters(firstName, lastName);
+            ContainsOnlyLetters(firstName, "First Name");
+            ContainsOnlyLetters(lastName, "Last Name");
         }
 
-        private void NameContainsOnlyLetters(string firstName, string lastName)
+        public void ValidateAddress(string address)
         {
-            bool containsOnlyLetters = Regex.IsMatch(firstName + lastName, @"^[a-zA-Z]+$");
-            if (!containsOnlyLetters) { throw new Exception("Customer name must not have special characters or numbers"); }
+            IsAddressTooLong(address);
+            ContainsOnlyAlphanumeric(address, "Address");
+            IsEmpty(address, "Address");
         }
 
+        public void ValidateCity(string city)
+        {
+            IsEmpty(city, "City");
+            ContainsOnlyLetters(city, "City");
+        }
+
+        public void ValidatePhone(string phone)
+        {
+            IsEmpty(phone, "Phone");
+            IsPhoneNumberValid(phone);
+        }
+
+        public void ValidateEmail(string email)
+        {
+            IsEmpty(email, "email");
+            IsEmailValid(email);
+        }
+
+        //-------Generic validations------------
+
+        private void ContainsOnlyLetters(string input, string field)
+        {
+            bool containsOnlyLetters = Regex.IsMatch(input, @"^[a-zA-Z]+$");
+            if (!containsOnlyLetters) { throw new Exception($"{field} must not have special characters or numbers"); }
+
+        }
+
+        private void ContainsOnlyAlphanumeric(string input, string field)
+        {
+            bool containsOnlyLetters = Regex.IsMatch(input, @"^[a-zA-Z0-9\s]+$");
+            if (!containsOnlyLetters) { throw new Exception($"{field} must not have special characters"); }
+        }
+
+        private void IsEmpty(string input, string field)
+        {
+            if (input == "") { throw new Exception($"{field} is required"); }
+        }
+
+        // _______________________ Name Validations ______________________
         private void IsLastNameTooLong(string lastName)
         {
             if (lastName.Length > nameMaxLength)
@@ -42,14 +84,30 @@ namespace Bit706_as2
             }
         }
 
-        private void IsLastNameEmpty(string lastName)
+        // _______________________ Address ______________________
+        public void IsAddressTooLong(string address)
         {
-            if (lastName == "") { throw new Exception("You must enter a last name!"); }
+            if (address.Length > addressMaxLength)
+            {
+                throw new Exception($"Address must be less than {addressMaxLength} characters long");
+            }
         }
 
-        private void IsFirstNameEmpty(string firstName)
+        // _______________________ Phone ______________________
+
+        public void IsPhoneNumberValid(string input)
         {
-            if (firstName == "") { throw new Exception("You must enter a first name!"); }
+            //allows + at the start, and ()
+            bool containsOnlyLetters = Regex.IsMatch(input, @"^\+?\d+[\d\-\(\)]*$");
+            if (!containsOnlyLetters) { throw new Exception($"Phone must be a valid phone number"); }
+        }
+        // _______________________ Email ______________________
+
+        public void IsEmailValid(string input)
+        {
+            //allows alphanumeric and checks for @ and .
+            bool containsOnlyLetters = Regex.IsMatch(input, @"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$");
+            if (!containsOnlyLetters) { throw new Exception($"please enter a valid email"); }
         }
     }
 }

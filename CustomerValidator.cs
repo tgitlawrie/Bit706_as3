@@ -58,6 +58,7 @@ namespace Bit706_as2
 
         private void ContainsOnlyAlphanumeric(string input, string field)
         {
+            //checks for special characters
             bool containsOnlyLetters = Regex.IsMatch(input, @"^[a-zA-Z0-9\s]+$");
             if (!containsOnlyLetters) { throw new Exception($"{field} must not have special characters"); }
         }

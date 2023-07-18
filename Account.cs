@@ -33,12 +33,15 @@ namespace Bit706_as2
 
         public void Deposit(decimal amount)
         {
+            if (amount < 0) { throw new FailedWithdrawalException("Deposit amount must be positive"); }
             balance += amount;
             //TODO add history
         }
 
         public virtual bool Withdraw(decimal amount)
         {
+            // check amount is positive, front end should validate before it gets here
+            if(amount < 0) { throw new FailedWithdrawalException("Withdrawal amount must be positive"); }
             //check if sufficient funds
             if(amount <= balance) {
                 balance -= amount;
@@ -46,7 +49,8 @@ namespace Bit706_as2
             }
             else
             {
-                return false;
+                throw new FailedWithdrawalException("Insufficient Funds");
+                //return false;
             }
         }
 

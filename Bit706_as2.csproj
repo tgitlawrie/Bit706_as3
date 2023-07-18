@@ -63,6 +63,7 @@
       <DependentUpon>EditCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Everyday.cs" />
+    <Compile Include="FailedWithdrawalException.cs" />
     <Compile Include="Investment.cs" />
     <Compile Include="Omni.cs" />
     <Compile Include="ParentForm.cs">

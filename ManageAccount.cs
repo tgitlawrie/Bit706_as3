@@ -12,9 +12,18 @@ namespace Bit706_as2
 {
     public partial class ManageAccount : ParentForm
     {
-        public ManageAccount()
+        Customer customer;
+
+        /// <summary>
+        /// initialise componenents and add customer information to form
+        /// </summary>
+        /// <param name="customer"></param>
+        public ManageAccount(Customer customer)
         {
             InitializeComponent();
+            this.customer = customer;
+            lblCustID.Text = customer.ID.ToString();
+            lblCustName.Text = customer.FirstName + " " + customer.LastName;
         }
 
         private void lblNewAcc_Click(object sender, EventArgs e)

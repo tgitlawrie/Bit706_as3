@@ -8,11 +8,12 @@ using System.Windows.Forms;
 
 namespace Bit706_as2
 {
-    //TEST COMMENT
+    
     public abstract class Account
     {
         protected static int nextID = 1;
         protected int id;
+        protected int customerId;
         protected decimal balance;
 
         public List<string> history = new List<string>();
@@ -23,14 +24,19 @@ namespace Bit706_as2
             nextID++;
         }
 
-        public Account(decimal newBalance) : this()
+        public Account(int customerId)
         {
-            balance = newBalance;
+            this.customerId = customerId;
+        }
+
+        public Account(int customerId, decimal newBalance) : this(customerId)
+        {
+           balance = newBalance;
         }
 
         public int ID { get => id; set => id = value; }// this will be needed for serialisation later
         public decimal Balance { get => balance; set => balance = value; }
-       
+        public int CustomerID { get => customerId; set => customerId = value; }
 
         public void Deposit(decimal amount)
         {

@@ -7,7 +7,7 @@
 
         private readonly string accountType = "Everyday";
 
-        public Everyday(decimal newBalance) : base(newBalance) { }
+        public Everyday(int customerId, decimal newBalance) : base(customerId,newBalance) { }
 
         public override string Info()
         {

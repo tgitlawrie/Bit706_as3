@@ -109,6 +109,13 @@ namespace Bit706_as2
         private void bntAccounts_Click(object sender, EventArgs e)
         {
             // get customer send to accounts form
+            Customer customer = GetCustomer();
+            this.Hide();
+            ManageAccount manageAccount = new ManageAccount(customer);
+            manageAccount.StartPosition = FormStartPosition.Manual;
+            manageAccount.Location = this.Location;
+            manageAccount.ShowDialog();
+            this.Close();
         }
     }
 }

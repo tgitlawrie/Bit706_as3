@@ -18,26 +18,26 @@ namespace Bit706_as2
         private decimal fee = 20.0m; //set fee for failed transaction
         private decimal overdraft = 1000.0m; //set overdraft limit
 
-        public Omni(decimal newBalance) : base(newBalance) { }
+        public Omni(int customerId, decimal newBalance) : base(customerId, newBalance) { }
 
-        public Omni(decimal newBalance, decimal newInterestRate): this(newBalance)
+        public Omni(int customerId, decimal newBalance, decimal newInterestRate) : this(customerId, newBalance)
         {
             this.interestRate = newInterestRate;
         }
 
-        public Omni(decimal newBalance, decimal newInterestRate,decimal newFee): this(newBalance, newInterestRate)
+        public Omni(int customerId, decimal newBalance, decimal newInterestRate, decimal newFee) : this(customerId, newBalance, newInterestRate)
         {
             this.fee = newFee;
         }
 
-        public Omni(decimal newBalance, decimal newInterestRate,decimal newFee, decimal newOverdraft): this(newBalance,newInterestRate,newFee) 
+        public Omni(int customerId, decimal newBalance, decimal newInterestRate, decimal newFee, decimal newOverdraft) : this(customerId, newBalance, newInterestRate, newFee)
         {
             this.overdraft = newOverdraft;
         }
 
         public override bool Withdraw(decimal amount)
         {
-            if(balance - amount >= -overdraft)
+            if (balance - amount >= -overdraft)
             {
                 balance -= amount;
                 return true;

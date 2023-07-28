@@ -6,7 +6,7 @@ namespace Bit706_as2
 {
     public class Investment : Account
     {
-  
+
         //Investment
         //• Interest rates(varied) paid on all funds, no overdraft allowed, fee incurred for failed
         //transaction
@@ -15,13 +15,13 @@ namespace Bit706_as2
         private decimal interestRate; //
         private decimal fee = 40.0m; //set default fee for failed transaction
 
-        public Investment(decimal newBalance) : base(newBalance) { }
-        public Investment(decimal newBalance, decimal newInterestRate) : this(newBalance)
+        public Investment(int customerId, decimal newBalance) : base(customerId, newBalance) { }
+        public Investment(int customerId, decimal newBalance, decimal newInterestRate) : this(customerId, newBalance)
         {
             this.interestRate = newInterestRate;
         }
 
-        public Investment(decimal newBalance, decimal newInterestRate, decimal newFee) : this(newBalance, newInterestRate)
+        public Investment(int customerId, decimal newBalance, decimal newInterestRate, decimal newFee) : this(customerId, newBalance, newInterestRate)
         {
             this.fee = newFee;
         }

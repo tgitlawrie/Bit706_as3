@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bit706_as2", "Bit706_as2.csproj", "{0018F1D6-26FB-4B66-9388-5E397A34C389}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bit706_as3", "Bit706_as3.csproj", "{0018F1D6-26FB-4B66-9388-5E397A34C389}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountTests", "..\AccountTests\AccountTests.csproj", "{61FA8170-DB8F-4AE9-B62E-167A9D1CC862}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "as3_gherkin_tests", "..\as3_gherkin_tests\as3_gherkin_tests.csproj", "{A98B612F-7073-4CFA-9688-1A59F1B05467}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{61FA8170-DB8F-4AE9-B62E-167A9D1CC862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61FA8170-DB8F-4AE9-B62E-167A9D1CC862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61FA8170-DB8F-4AE9-B62E-167A9D1CC862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A98B612F-7073-4CFA-9688-1A59F1B05467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A98B612F-7073-4CFA-9688-1A59F1B05467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A98B612F-7073-4CFA-9688-1A59F1B05467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A98B612F-7073-4CFA-9688-1A59F1B05467}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

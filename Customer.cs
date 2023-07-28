@@ -14,12 +14,15 @@ namespace Bit706_as2
         protected string firstName;
         protected string lastName;
 
-        //added below this line
+        
         private string address;
         private string city;
         private string phone;
         private string email;
         private bool isStaff = false;
+
+        //      Dictionary<ID,AccountObject>
+        private Dictionary<int,Account> CustAccounts = new Dictionary<int,Account>();
 
         public Customer() {
             iD = nextID;

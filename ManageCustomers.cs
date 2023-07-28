@@ -105,5 +105,10 @@ namespace Bit706_as2
             Customer customer = customerController.FindCustomerByID(lstCustomers.SelectedItem.ToString());
             return customer;
         }
+
+        private void bntAccounts_Click(object sender, EventArgs e)
+        {
+            // get customer send to accounts form
+        }
     }
 }

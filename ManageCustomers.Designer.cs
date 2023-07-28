@@ -32,6 +32,7 @@
             this.bntEditCustomer = new System.Windows.Forms.Button();
             this.bntDeleteCustomer = new System.Windows.Forms.Button();
             this.lstCustomers = new System.Windows.Forms.ListBox();
+            this.bntAccounts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddCustomer
@@ -43,9 +44,9 @@
             this.btnAddCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
             this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCustomer.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCustomer.Location = new System.Drawing.Point(285, 95);
+            this.btnAddCustomer.Location = new System.Drawing.Point(285, 89);
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(187, 77);
+            this.btnAddCustomer.Size = new System.Drawing.Size(187, 60);
             this.btnAddCustomer.TabIndex = 3;
             this.btnAddCustomer.Text = "Add Customer";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
@@ -60,9 +61,9 @@
             this.bntEditCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
             this.bntEditCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntEditCustomer.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntEditCustomer.Location = new System.Drawing.Point(285, 178);
+            this.bntEditCustomer.Location = new System.Drawing.Point(285, 155);
             this.bntEditCustomer.Name = "bntEditCustomer";
-            this.bntEditCustomer.Size = new System.Drawing.Size(187, 77);
+            this.bntEditCustomer.Size = new System.Drawing.Size(187, 60);
             this.bntEditCustomer.TabIndex = 4;
             this.bntEditCustomer.Text = "Edit Selected Customer";
             this.bntEditCustomer.UseVisualStyleBackColor = true;
@@ -77,9 +78,9 @@
             this.bntDeleteCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
             this.bntDeleteCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntDeleteCustomer.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntDeleteCustomer.Location = new System.Drawing.Point(285, 261);
+            this.bntDeleteCustomer.Location = new System.Drawing.Point(285, 221);
             this.bntDeleteCustomer.Name = "bntDeleteCustomer";
-            this.bntDeleteCustomer.Size = new System.Drawing.Size(187, 77);
+            this.bntDeleteCustomer.Size = new System.Drawing.Size(187, 60);
             this.bntDeleteCustomer.TabIndex = 5;
             this.bntDeleteCustomer.Text = "Delete Selected Customer";
             this.bntDeleteCustomer.UseVisualStyleBackColor = true;
@@ -95,11 +96,29 @@
             this.lstCustomers.Size = new System.Drawing.Size(215, 292);
             this.lstCustomers.TabIndex = 6;
             // 
+            // bntAccounts
+            // 
+            this.bntAccounts.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.bntAccounts.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
+            this.bntAccounts.FlatAppearance.BorderSize = 2;
+            this.bntAccounts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lavender;
+            this.bntAccounts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
+            this.bntAccounts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntAccounts.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntAccounts.Location = new System.Drawing.Point(285, 287);
+            this.bntAccounts.Name = "bntAccounts";
+            this.bntAccounts.Size = new System.Drawing.Size(187, 60);
+            this.bntAccounts.TabIndex = 7;
+            this.bntAccounts.Text = "Manage Accounts";
+            this.bntAccounts.UseVisualStyleBackColor = true;
+            this.bntAccounts.Click += new System.EventHandler(this.bntAccounts_Click);
+            // 
             // ManageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 411);
+            this.Controls.Add(this.bntAccounts);
             this.Controls.Add(this.lstCustomers);
             this.Controls.Add(this.bntDeleteCustomer);
             this.Controls.Add(this.bntEditCustomer);
@@ -110,6 +129,7 @@
             this.Controls.SetChildIndex(this.bntEditCustomer, 0);
             this.Controls.SetChildIndex(this.bntDeleteCustomer, 0);
             this.Controls.SetChildIndex(this.lstCustomers, 0);
+            this.Controls.SetChildIndex(this.bntAccounts, 0);
             this.ResumeLayout(false);
 
         }
@@ -120,5 +140,6 @@
         private System.Windows.Forms.Button bntEditCustomer;
         private System.Windows.Forms.Button bntDeleteCustomer;
         private System.Windows.Forms.ListBox lstCustomers;
+        private System.Windows.Forms.Button bntAccounts;
     }
 }

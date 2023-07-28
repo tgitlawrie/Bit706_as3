@@ -26,5 +26,10 @@ namespace Bit706_as2
             manageCustomers.ShowDialog();
             this.Close();
         }
+
+        private void btnAccounts_Click(object sender, EventArgs e)
+        {
+            //load form for accounts
+        }
     }
 }

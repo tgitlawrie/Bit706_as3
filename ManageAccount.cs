@@ -14,21 +14,12 @@ namespace Bit706_as2
     {
         Customer customer;
 
-        /// <summary>
-        /// initialise componenents and add customer information to form
-        /// </summary>
-        /// <param name="customer"></param>
         public ManageAccount(Customer customer)
         {
             InitializeComponent();
             this.customer = customer;
             lblCustID.Text = customer.ID.ToString();
             lblCustName.Text = customer.FirstName + " " + customer.LastName;
-        }
-
-        private void lblNewAcc_Click(object sender, EventArgs e)
-        {
-            //create new account for customer
         }
 
         private void btnDeposit_Click(object sender, EventArgs e)
@@ -44,6 +35,12 @@ namespace Bit706_as2
         private void btnTransfer_Click(object sender, EventArgs e)
         {
             //transfer funds
+        }
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            //create account
+            //accountsController.CreateAccount();
         }
     }
 }

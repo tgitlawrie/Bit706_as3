@@ -31,11 +31,11 @@
             this.lblCustName = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblCustID = new System.Windows.Forms.Label();
-            this.lblNewAcc = new System.Windows.Forms.Button();
             this.btnDeposit = new System.Windows.Forms.Button();
             this.btnWithdraw = new System.Windows.Forms.Button();
             this.btnTransfer = new System.Windows.Forms.Button();
             this.lstAccounts = new System.Windows.Forms.ListBox();
+            this.btnAddAccount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCustName
@@ -70,22 +70,6 @@
             this.lblCustID.Size = new System.Drawing.Size(157, 28);
             this.lblCustID.TabIndex = 13;
             this.lblCustID.Text = "Customer ID";
-            // 
-            // lblNewAcc
-            // 
-            this.lblNewAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblNewAcc.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
-            this.lblNewAcc.FlatAppearance.BorderSize = 2;
-            this.lblNewAcc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lavender;
-            this.lblNewAcc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
-            this.lblNewAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblNewAcc.Location = new System.Drawing.Point(356, 127);
-            this.lblNewAcc.Name = "lblNewAcc";
-            this.lblNewAcc.Size = new System.Drawing.Size(116, 56);
-            this.lblNewAcc.TabIndex = 15;
-            this.lblNewAcc.Text = "Add New Account";
-            this.lblNewAcc.UseVisualStyleBackColor = true;
-            this.lblNewAcc.Click += new System.EventHandler(this.lblNewAcc_Click);
             // 
             // btnDeposit
             // 
@@ -143,16 +127,32 @@
             this.lstAccounts.Size = new System.Drawing.Size(184, 147);
             this.lstAccounts.TabIndex = 19;
             // 
+            // btnAddAccount
+            // 
+            this.btnAddAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddAccount.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
+            this.btnAddAccount.FlatAppearance.BorderSize = 2;
+            this.btnAddAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lavender;
+            this.btnAddAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
+            this.btnAddAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAccount.Location = new System.Drawing.Point(356, 127);
+            this.btnAddAccount.Name = "btnAddAccount";
+            this.btnAddAccount.Size = new System.Drawing.Size(116, 56);
+            this.btnAddAccount.TabIndex = 20;
+            this.btnAddAccount.Text = "Add Account";
+            this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
+            // 
             // ManageAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 411);
+            this.Controls.Add(this.btnAddAccount);
             this.Controls.Add(this.lstAccounts);
             this.Controls.Add(this.btnTransfer);
             this.Controls.Add(this.btnWithdraw);
             this.Controls.Add(this.btnDeposit);
-            this.Controls.Add(this.lblNewAcc);
             this.Controls.Add(this.lblCustID);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblCustName);
@@ -161,11 +161,11 @@
             this.Controls.SetChildIndex(this.lblCustName, 0);
             this.Controls.SetChildIndex(this.lblTitle, 0);
             this.Controls.SetChildIndex(this.lblCustID, 0);
-            this.Controls.SetChildIndex(this.lblNewAcc, 0);
             this.Controls.SetChildIndex(this.btnDeposit, 0);
             this.Controls.SetChildIndex(this.btnWithdraw, 0);
             this.Controls.SetChildIndex(this.btnTransfer, 0);
             this.Controls.SetChildIndex(this.lstAccounts, 0);
+            this.Controls.SetChildIndex(this.btnAddAccount, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,10 +176,10 @@
         private System.Windows.Forms.Label lblCustName;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblCustID;
-        private System.Windows.Forms.Button lblNewAcc;
         private System.Windows.Forms.Button btnDeposit;
         private System.Windows.Forms.Button btnWithdraw;
         private System.Windows.Forms.Button btnTransfer;
         private System.Windows.Forms.ListBox lstAccounts;
+        private System.Windows.Forms.Button btnAddAccount;
     }
 }

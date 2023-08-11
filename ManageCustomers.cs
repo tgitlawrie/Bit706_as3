@@ -102,7 +102,7 @@ namespace Bit706_as2
         }
         private Customer GetCustomer()
         {
-            Customer customer = customerController.FindCustomerByID(lstCustomers.SelectedItem.ToString());
+            Customer customer = customerController.FindCustomerByID(lstCustomers.SelectedItem.ToString()); //TODO validate
             return customer;
         }
 

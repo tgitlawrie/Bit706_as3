@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AccountsController.cs" />
     <Compile Include="AddCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>

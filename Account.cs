@@ -14,7 +14,7 @@ namespace Bit706_as2
         protected static int nextID = 1;
         protected int id;
         protected int customerId;
-        protected decimal balance;
+        protected decimal balance = 0.00m;
 
         public List<string> history = new List<string>();
 

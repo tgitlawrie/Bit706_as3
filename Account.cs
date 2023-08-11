@@ -14,7 +14,7 @@ namespace Bit706_as2
         protected static int nextID = 1;
         protected int id;
         protected int customerId;
-        protected decimal balance = 0.00m;
+        protected decimal balance;
 
         public List<string> history = new List<string>();
 
@@ -24,7 +24,7 @@ namespace Bit706_as2
             nextID++;
         }
 
-        public Account(int customerId)
+        public Account(int customerId) : this()
         {
             this.customerId = customerId;
         }

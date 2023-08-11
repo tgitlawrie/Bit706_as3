@@ -20,7 +20,7 @@ namespace Bit706_as2
             switch (accountType)
             {
                 case "Everyday":
-                    accounts.Add(new Everyday(customerID, 150)); 
+                    accounts.Add(new Everyday(customerID, 0)); 
                         break;
                 case "Investment":
                     accounts.Add(new Investment(customerID,0));

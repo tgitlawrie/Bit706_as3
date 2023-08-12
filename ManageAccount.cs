@@ -39,8 +39,11 @@ namespace Bit706_as2
 
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
-            //create account
-            //accountsController.CreateAccount();
+            AccountCreate accountCreate = new AccountCreate(customer);
+            accountCreate.StartPosition = FormStartPosition.CenterParent;
+            accountCreate.Location = this.Location;
+            accountCreate.ShowDialog();
+            
         }
     }
 }

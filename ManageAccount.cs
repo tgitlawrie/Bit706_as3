@@ -10,16 +10,19 @@ using System.Windows.Forms;
 
 namespace Bit706_as2
 {
-    public partial class ManageAccount : ParentForm
+    public partial class ManageAccount : ParentForm, IObserver
     {
         Customer customer;
+        private List<Account> accounts;
 
         public ManageAccount(Customer customer)
         {
             InitializeComponent();
+            accountsController.AttachObserver(this);
             this.customer = customer;
             lblCustID.Text = customer.ID.ToString();
             lblCustName.Text = customer.FirstName + " " + customer.LastName;
+            Update();
         }
 
         private void btnDeposit_Click(object sender, EventArgs e)
@@ -44,6 +47,17 @@ namespace Bit706_as2
             accountCreate.Location = this.Location;
             accountCreate.ShowDialog();
             
+        }
+
+        //default of null so we can update the list on load
+        public void Update(Account a = null)
+        {
+            lstAccounts.Items.Clear();
+            accounts = accountsController.FindAccountByCustomer(customer.ID);
+            foreach(Account accounts in accounts)
+            {
+                lstAccounts.Items.Add(accounts.Info());
+            }
         }
     }
 }

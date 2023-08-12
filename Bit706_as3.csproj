@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Everyday.cs" />
     <Compile Include="FailedWithdrawalException.cs" />
+    <Compile Include="Interface.cs" />
     <Compile Include="Investment.cs" />
     <Compile Include="ManageAccount.cs">
       <SubType>Form</SubType>

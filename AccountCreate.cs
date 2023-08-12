@@ -17,9 +17,14 @@ namespace Bit706_as2
         private string investment = "Investment Account\nInterest of 4% paid on all funds\nNo Overdraft\nFailed transaction fee of $10.00";
         private string Omni = "Omni Account\nInterest of 4% paid on Balances over $1000\nOverdraft of $1000 Permitted\nFailed transaction fee of $10.00";
 
+        Customer Customer;
+        
+        private string AccountType = "Everyday"; //everyday is selected on form load
+        
         public AccountCreate(Customer customer)
         {
             InitializeComponent();
+            this.Customer = customer;
             lblCustomer.Text = customer.CustomerInfo();
             lblAccount.Text = everyday;
             radEveryday.CheckedChanged += new EventHandler(RadioButtonChanged);
@@ -35,21 +40,19 @@ namespace Bit706_as2
             {
                 case "radEveryday":
                     lblAccount.Text = everyday;
+                    AccountType = "Everyday";
                     break;
                 case "radInvestment":
                     lblAccount.Text = investment;
+                    AccountType = "Investment";
                     break;
                 case "radOmni":
                     lblAccount.Text = Omni;
+                    AccountType = "Omni";
                     break;
                 default:
                     throw new Exception("No account is selected");
             }
-        }
-
-        private void btnAddAccount_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -57,9 +60,21 @@ namespace Bit706_as2
             this.Close();
         }
 
-        private void updateAccountInfo()
+        private void btnCreate_Click(object sender, EventArgs e)
         {
 
+            if (!decimal.TryParse(txtBalance.Text, out decimal amount))
+            {
+                txtBalance.Text = "0.00";
+                MessageBox.Show("Invalid balance entered, Please enter a valid currency", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if(!accountsController.CreateAccount(AccountType, Customer.ID, amount))
+            {
+                MessageBox.Show(accountsController.ErrorMessage);
+                return;
+            }
+            MessageBox.Show($"{AccountType} Account for {Customer.CustomerInfo()} Created Successfully");
+            this.Close();
         }
     }
 }

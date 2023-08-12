@@ -15,21 +15,21 @@ namespace Bit706_as2
 
         public string ErrorMessage { get => errorMessage; set => errorMessage = value; }
 
-        public bool CreateAccount(string accountType, int customerID)
+        public bool CreateAccount(string accountType, int customerID, decimal initialBalance = 0)
         {
             switch (accountType)
             {
                 case "Everyday":
-                    accounts.Add(new Everyday(customerID, 0)); 
+                    accounts.Add(new Everyday(customerID, initialBalance)); 
                         break;
                 case "Investment":
-                    accounts.Add(new Investment(customerID,0));
+                    accounts.Add(new Investment(customerID, initialBalance));
                     break;
                 case "Omni":
-                    accounts.Add(new Omni(customerID,0));
+                    accounts.Add(new Omni(customerID, initialBalance));
                     break;
                 default:
-                    throw new Exception("Account Creation Error");
+                    throw new AccountException("Account Creation Error");
             }
            
             return true;

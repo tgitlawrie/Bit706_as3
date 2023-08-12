@@ -36,7 +36,7 @@
             this.radEveryday = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBalance = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.lblAccount = new System.Windows.Forms.Label();
@@ -57,6 +57,7 @@
             this.btnCreate.TabIndex = 21;
             this.btnCreate.Text = "Create Account";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnCancel
             // 
@@ -134,13 +135,13 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Initial Balance $";
             // 
-            // textBox1
+            // txtBalance
             // 
-            this.textBox1.Location = new System.Drawing.Point(283, 154);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 26;
-            this.textBox1.Text = "0.00";
+            this.txtBalance.Location = new System.Drawing.Point(283, 154);
+            this.txtBalance.Name = "txtBalance";
+            this.txtBalance.Size = new System.Drawing.Size(100, 20);
+            this.txtBalance.TabIndex = 26;
+            this.txtBalance.Text = "0.00";
             // 
             // label5
             // 
@@ -179,7 +180,7 @@
             this.Controls.Add(this.lblAccount);
             this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBalance);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel3);
@@ -192,7 +193,7 @@
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.txtBalance, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.lblCustomer, 0);
             this.Controls.SetChildIndex(this.lblAccount, 0);
@@ -213,7 +214,7 @@
         private System.Windows.Forms.RadioButton radEveryday;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblCustomer;
         private System.Windows.Forms.Label lblAccount;

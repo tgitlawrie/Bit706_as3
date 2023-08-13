@@ -18,6 +18,8 @@ namespace Bit706_as2
         private decimal fee = 20.0m; //set fee for failed transaction
         private decimal overdraft = 1000.0m; //set overdraft limit
 
+        public string AccountType => accountType;
+
         public Omni(int customerId, decimal newBalance) : base(customerId, newBalance) { }
 
         public Omni(int customerId, decimal newBalance, decimal newInterestRate) : this(customerId, newBalance)

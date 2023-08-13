@@ -9,9 +9,11 @@
 
         public Everyday(int customerId, decimal newBalance) : base(customerId,newBalance) { }
 
+        public string AccountType => accountType;
+
         public override string Info()
         {
-            return accountType + " " 
+            return AccountType + " " 
                 + id
                 + "\n" + base.Info();
         }

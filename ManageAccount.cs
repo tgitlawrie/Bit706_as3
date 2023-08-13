@@ -56,7 +56,8 @@ namespace Bit706_as2
             accounts = accountsController.FindAccountByCustomer(customer.ID);
             foreach(Account accounts in accounts)
             {
-                lstAccounts.Items.Add(accounts.Info());
+                string details = $"{accounts.ID} {accounts} ${accounts.Balance}";
+                lstAccounts.Items.Add(details);
             }
         }
     }

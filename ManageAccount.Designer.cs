@@ -124,7 +124,7 @@
             this.lstAccounts.FormattingEnabled = true;
             this.lstAccounts.Location = new System.Drawing.Point(17, 158);
             this.lstAccounts.Name = "lstAccounts";
-            this.lstAccounts.Size = new System.Drawing.Size(184, 147);
+            this.lstAccounts.Size = new System.Drawing.Size(280, 147);
             this.lstAccounts.TabIndex = 19;
             // 
             // btnAddAccount

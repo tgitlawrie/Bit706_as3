@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing.Text;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace Bit706_as2
@@ -26,8 +27,6 @@ namespace Bit706_as2
             this.fee = newFee;
         }
 
-        public string AccountType => accountType;
-
         public decimal AddInterest()
         {
             decimal interest = balance * (interestRate / 100);
@@ -42,7 +41,7 @@ namespace Bit706_as2
 
         public override string Info()
         {
-            return AccountType
+            return accountType
                 + " " + id
                 + "\nInterest Rate: " + interestRate + "%"
                 + "\nFailed transaction fee: $" + fee

@@ -111,6 +111,15 @@ namespace Bit706_as2
             return account.Info();
         }
 
+        public string GetAccountSummary(int accountId)
+        {
+            Account account = FindAccountById(accountId);
+            if (account is Investment investment) { return $"{account.ID} : Investment : Balance: ${account.Balance}"; }
+            else if (account is Omni omni) { return $"{account.ID} : Omni : Balance: ${account.Balance}"; }
+            else if (account is Everyday everyday) { return $"{account.ID} : Everyday : Balance: ${account.Balance}"; }
+            return null;
+        }
+
         public void AttachObserver(IObserver observer)
         {
             observers.Add(observer);

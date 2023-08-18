@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing.Text;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace Bit706_as2

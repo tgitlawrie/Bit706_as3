@@ -45,10 +45,10 @@ namespace Bit706_as2
 
             //retrieve customer
             Customer customer = GetCustomer();
-            
+
             if (customer == null)
             {
-                MessageBox.Show("Error, Customer not found");
+                MessageBox.Show("Please select a customer");
                 return;
             }
 
@@ -78,7 +78,7 @@ namespace Bit706_as2
             Customer customer = GetCustomer();
             if (customer == null)
             {
-                MessageBox.Show("Error, Customer not found");
+                MessageBox.Show("Error customer not found");
                 return;
             }
 
@@ -102,14 +102,21 @@ namespace Bit706_as2
         }
         private Customer GetCustomer()
         {
-            Customer customer = customerController.FindCustomerByID(lstCustomers.SelectedItem.ToString()); //TODO validate
-            return customer;
+                Customer customer = customerController.FindCustomerByID(lstCustomers.SelectedItem.ToString()); //TODO validate
+                return customer;           
         }
 
         private void bntAccounts_Click(object sender, EventArgs e)
         {
+            if (!IsCustomerSelected()) return;
             // get customer send to accounts form
             Customer customer = GetCustomer();
+            if (customer == null)
+            {
+                MessageBox.Show("Error customer not found");
+                return;
+            }
+
             this.Hide();
             ManageAccount manageAccount = new ManageAccount(customer);
             manageAccount.StartPosition = FormStartPosition.Manual;

@@ -7,31 +7,36 @@ using System.Threading.Tasks;
 
 namespace Bit706_as2
 {
-    public class AccountsController
+    public class AccountsController : ISubject
     {
-        private List<Account> accounts = new List<Account>();
+        public List<Account> accounts = new List<Account>();
+        public List<IObserver> observers = new List<IObserver>(); //change
 
         private string errorMessage;
 
         public string ErrorMessage { get => errorMessage; set => errorMessage = value; }
 
-        public bool CreateAccount(string accountType, int customerID)
+        public bool CreateAccount(string accountType, int customerID, decimal initialBalance = 0)
         {
+            Account newAccount;
             switch (accountType)
             {
                 case "Everyday":
-                    accounts.Add(new Everyday(customerID, 0)); 
+                    newAccount = new Everyday(customerID, initialBalance);
+                    accounts.Add(newAccount);
                         break;
                 case "Investment":
-                    accounts.Add(new Investment(customerID,0));
+                    newAccount = new Investment(customerID, initialBalance);
+                    accounts.Add(newAccount);
                     break;
                 case "Omni":
-                    accounts.Add(new Omni(customerID,0));
+                    newAccount = new Omni(customerID, initialBalance);
+                    accounts.Add(newAccount);
                     break;
                 default:
-                    throw new Exception("Account Creation Error");
+                    throw new AccountException("Account Creation Error");
             }
-           
+            NotifyObservers(newAccount);
             return true;
         }
 
@@ -104,6 +109,28 @@ namespace Bit706_as2
         {
             Account account = FindAccountById(accountId);
             return account.Info();
+        }
+
+        public string GetAccountSummary(int accountId)
+        {
+            Account account = FindAccountById(accountId);
+            if (account is Investment investment) { return $"{account.ID} : Investment : Balance: ${account.Balance}"; }
+            else if (account is Omni omni) { return $"{account.ID} : Omni : Balance: ${account.Balance}"; }
+            else if (account is Everyday everyday) { return $"{account.ID} : Everyday : Balance: ${account.Balance}"; }
+            return null;
+        }
+
+        public void AttachObserver(IObserver observer)
+        {
+            observers.Add(observer);
+        }
+
+        public void NotifyObservers(Account a)
+        {
+            foreach(IObserver obs in observers)
+            {
+                obs.Update(a);
+            }
         }
     }
 }

@@ -51,7 +51,7 @@ namespace Bit706_as2
 
         private void ContainsOnlyLetters(string input, string field)
         {
-            bool containsOnlyLetters = Regex.IsMatch(input, @"^[a-zA-Z]+$");
+            bool containsOnlyLetters = Regex.IsMatch(input, @"^[a-zA-Z\s]+$");
             if (!containsOnlyLetters) { throw new Exception($"{field} must not have special characters or numbers"); }
 
         }

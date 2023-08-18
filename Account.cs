@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Bit706_as2
 {
-    
+
     public abstract class Account
     {
         protected static int nextID = 1;
@@ -31,7 +31,7 @@ namespace Bit706_as2
 
         public Account(int customerId, decimal newBalance) : this(customerId)
         {
-           balance = newBalance;
+            balance = newBalance;
         }
 
         public int ID { get => id; set => id = value; }// this will be needed for serialisation later
@@ -48,9 +48,10 @@ namespace Bit706_as2
         public virtual bool Withdraw(decimal amount)
         {
             // check amount is positive, front end should validate before it gets here
-            if(amount < 0) { throw new FailedWithdrawalException("Withdrawal amount must be positive"); }
+            if (amount < 0) { throw new FailedWithdrawalException("Withdrawal amount must be positive"); }
             //check if sufficient funds
-            if(amount <= balance) {
+            if (amount <= balance)
+            {
                 balance -= amount;
                 return true;
             }
@@ -59,6 +60,14 @@ namespace Bit706_as2
                 throw new FailedWithdrawalException("Insufficient Funds");
                 //return false;
             }
+        }
+
+        public void Transfer(Account from, Account to, decimal amount)
+        {
+            if (amount < 0) { throw new FailedWithdrawalException("amount must be positive"); }
+
+                from.balance -= amount;
+                to.balance += amount;
         }
 
         public void RecordTransaction(string transaction)
@@ -73,6 +82,27 @@ namespace Bit706_as2
         public virtual string Info()
         {
             return "Balance $" + Math.Round(balance, 2).ToString();
+        }
+   
+        public string Summary // a property to return a summary of the account
+        {
+            get
+            {
+                string type = ""; // a variable to store the type of the account
+                if (this is Investment) // check if the account is an investment account
+                {
+                    type = "Investment"; // set the type to investment
+                }
+                else if (this is Omni) // check if the account is an omni account
+                {
+                    type = "Omni"; // set the type to omni
+                }
+                else if (this is Everyday) // check if the account is an everyday account
+                {
+                    type = "Everyday"; // set the type to everyday
+                }
+                return $"Account ID: {ID}, Type: {type}, Balance: ${Balance}"; // return a summary string with the ID, type and balance of the account
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Bit706_as2
                 case "Everyday":
                     newAccount = new Everyday(customerID, initialBalance);
                     accounts.Add(newAccount);
-                        break;
+                    break;
                 case "Investment":
                     newAccount = new Investment(customerID, initialBalance);
                     accounts.Add(newAccount);
@@ -40,7 +40,7 @@ namespace Bit706_as2
             return true;
         }
 
-        private Account FindAccountById(int accountId)
+        public Account FindAccountById(int accountId)
         {
             Account account = accounts.Find(a => a.ID == accountId);
             return account;
@@ -51,9 +51,11 @@ namespace Bit706_as2
         /// </summary>
         /// <param name="customerID"></param>
         /// <returns>a list of accounts</returns>
-        public List<Account> FindAccountByCustomer(int customerID) {
+        public List<Account> FindAccountByCustomer(int customerID)
+        {
             return accounts.Where(a => a.CustomerID == customerID).ToList();
         }
+
 
         public bool Deposit(int accountId, decimal amount)
         {
@@ -62,10 +64,29 @@ namespace Bit706_as2
             return true;
         }
 
-        public bool Withdraw(int accountId, decimal amount) {
+        public bool Withdraw(int accountId, decimal amount)
+        {
             Account account = FindAccountById(accountId);
             account.Withdraw(amount);
             return true;
+        }
+
+        public bool Transfer(int fromAccount, int toAccount, decimal amount)
+        {
+            Account from = FindAccountById(fromAccount);
+            Account to = FindAccountById(toAccount);
+            if (Withdraw(from.ID, amount))
+            {
+                if (Deposit(to.ID, amount))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                throw new AccountException("Transfer Failed");
+            }
+            return false;
         }
 
         /// <summary>
@@ -77,11 +98,12 @@ namespace Bit706_as2
         public bool AddInterest(int accountId)
         {
             Account account = FindAccountById(accountId);
-            if (account is Investment investment) { 
-                investment.AddInterest(); 
+            if (account is Investment investment)
+            {
+                investment.AddInterest();
                 return true;
             }
-            if(account is Omni omni)
+            if (account is Omni omni)
             {
                 omni.AddInterest();
                 return true;
@@ -127,7 +149,7 @@ namespace Bit706_as2
 
         public void NotifyObservers(Account a)
         {
-            foreach(IObserver obs in observers)
+            foreach (IObserver obs in observers)
             {
                 obs.Update(a);
             }

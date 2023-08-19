@@ -38,17 +38,20 @@ namespace Bit706_as2
         public decimal Balance { get => balance; set => balance = value; }
         public int CustomerID { get => customerId; set => customerId = value; }
 
-        public void Deposit(decimal amount)
+        public bool Deposit(decimal amount)
         {
-            if (amount < 0) { throw new FailedWithdrawalException("Deposit amount must be positive"); }
+            if (amount < 0) { 
+                throw new FailedTransactionException("Deposit amount must be positive");
+            }
             balance += amount;
+            return true;
             //TODO add history
         }
 
         public virtual bool Withdraw(decimal amount)
         {
             // check amount is positive, front end should validate before it gets here
-            if (amount < 0) { throw new FailedWithdrawalException("Withdrawal amount must be positive"); }
+            if (amount < 0) { throw new FailedTransactionException("Withdrawal amount must be positive"); }
             //check if sufficient funds
             if (amount <= balance)
             {
@@ -57,14 +60,14 @@ namespace Bit706_as2
             }
             else
             {
-                throw new FailedWithdrawalException("Insufficient Funds");
+                throw new FailedTransactionException("Insufficient Funds");
                 //return false;
             }
         }
 
         public void Transfer(Account from, Account to, decimal amount)
         {
-            if (amount < 0) { throw new FailedWithdrawalException("amount must be positive"); }
+            if (amount < 0) { throw new FailedTransactionException("amount must be positive"); }
 
                 from.balance -= amount;
                 to.balance += amount;
@@ -84,24 +87,24 @@ namespace Bit706_as2
             return "Balance $" + Math.Round(balance, 2).ToString();
         }
    
-        public string Summary // a property to return a summary of the account
+        public string Summary 
         {
             get
             {
-                string type = ""; // a variable to store the type of the account
-                if (this is Investment) // check if the account is an investment account
+                string type = "";
+                if (this is Investment) 
                 {
-                    type = "Investment"; // set the type to investment
+                    type = "Investment"; 
                 }
-                else if (this is Omni) // check if the account is an omni account
+                else if (this is Omni)
                 {
-                    type = "Omni"; // set the type to omni
+                    type = "Omni"; 
                 }
-                else if (this is Everyday) // check if the account is an everyday account
+                else if (this is Everyday) 
                 {
-                    type = "Everyday"; // set the type to everyday
+                    type = "Everyday"; 
                 }
-                return $"Account ID: {ID}, Type: {type}, Balance: ${Balance}"; // return a summary string with the ID, type and balance of the account
+                return $"Account ID: {ID}, Type: {type}, Balance: ${Balance}"; 
             }
         }
     }

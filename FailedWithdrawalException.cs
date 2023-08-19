@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Bit706_as2
 {
-    public class FailedWithdrawalException : Exception
+    public class FailedTransactionException : Exception
     {
-        public FailedWithdrawalException() { }
-        public FailedWithdrawalException(string message) : base(message){ }
+        public FailedTransactionException() { }
+        public FailedTransactionException(string message) : base(message){ }
 
     }
 }

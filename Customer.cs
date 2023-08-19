@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Bit706_as2
 {
+    [Serializable]
     public class Customer
     {
-        protected static int nextID = 1;
+        
         protected int iD;
         protected string firstName;
         protected string lastName;
@@ -21,12 +22,8 @@ namespace Bit706_as2
         private string email;
         private bool isStaff = false;
 
-        //      Dictionary<ID,AccountObject>
-        private Dictionary<int,Account> CustAccounts = new Dictionary<int,Account>();
-
         public Customer() {
-            iD = nextID;
-            nextID++;
+            iD = CustomerData.NextId;
         }
         // just this one constructor for all the fields as they are all required.
         public Customer(
@@ -49,7 +46,7 @@ namespace Bit706_as2
         }
 
 
-        public int ID { get => iD; set => iD = value; }
+        public int ID { get => iD; }
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string Address { get => address; set => address = value; }

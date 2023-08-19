@@ -1,5 +1,8 @@
-﻿namespace Bit706_as2
+﻿using System;
+
+namespace Bit706_as2
 {
+    [Serializable]
     public class Everyday : Account
     {
         //Everyday

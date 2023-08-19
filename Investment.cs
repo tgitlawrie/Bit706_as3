@@ -5,6 +5,7 @@ using System.Runtime.InteropServices.ComTypes;
 
 namespace Bit706_as2
 {
+    [Serializable]
     public class Investment : Account
     {
 

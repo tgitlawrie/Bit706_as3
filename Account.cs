@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace Bit706_as2
 {
-
+    [Serializable]
     public abstract class Account
     {
-        protected static int nextID = 1;
+        
         protected int id;
         protected int customerId;
         protected decimal balance;
@@ -20,8 +20,7 @@ namespace Bit706_as2
 
         public Account()
         {
-            id = nextID;
-            nextID++;
+            id = AccountData.NextId;
         }
 
         public Account(int customerId) : this()
@@ -34,7 +33,7 @@ namespace Bit706_as2
             balance = newBalance;
         }
 
-        public int ID { get => id; set => id = value; }// this will be needed for serialisation later
+        public int ID { get => id;}
         public decimal Balance { get => balance; set => balance = value; }
         public int CustomerID { get => customerId; set => customerId = value; }
 

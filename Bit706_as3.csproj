@@ -53,6 +53,7 @@
     <Compile Include="AccountCreate.Designer.cs">
       <DependentUpon>AccountCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="AccountData.cs" />
     <Compile Include="AccountException.cs" />
     <Compile Include="AccountsController.cs" />
     <Compile Include="AddCustomerForm.cs">
@@ -63,7 +64,11 @@
     </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerController.cs" />
+    <Compile Include="CustomerData.cs" />
     <Compile Include="CustomerValidator.cs" />
+    <Compile Include="DataIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EditCustomer.cs">
       <SubType>Form</SubType>
     </Compile>

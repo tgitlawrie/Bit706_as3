@@ -15,18 +15,6 @@ namespace Bit706_as2
         public AddCustomerForm()
         {
             InitializeComponent();
-            testCustomer();
-        }
-
-        private void testCustomer()
-        {
-            txtFname.Text = "Tony";
-            txtLname.Text = "Lawrie";
-            txtEmail.Text = "Mail@mail.com";
-            txtPhone.Text = "123456789";
-            txtCity.Text = "lower hutt";
-            txtAddress.Text = "64 Frederick street";
-            chkStaff.Checked = true;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

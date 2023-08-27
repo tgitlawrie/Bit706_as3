@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Security.Principal;
 
 
 namespace Bit706_as2
@@ -18,6 +19,9 @@ namespace Bit706_as2
         private decimal interestRate = 4.0m;
         private decimal fee = 10.0m; //set fee for failed transaction
         private decimal overdraft = 1000.0m; //set overdraft limit
+
+        public decimal InterestRate { get => interestRate; set => interestRate = value; }
+        public decimal Fee { get => fee; set => fee = value; }
 
         public Omni(int customerId, decimal newBalance) : base(customerId, newBalance) { }
 
@@ -52,6 +56,7 @@ namespace Bit706_as2
             {
                 decimal interest = balance * (interestRate / 100);
                 balance += interest;
+                this.RecordTransaction($"Added {this.InterestRate}% to {this.Summary}");
                 return interest;
             }
             return 0;

@@ -2,6 +2,7 @@
 using System.Drawing.Text;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
+using System.Security.Principal;
 
 namespace Bit706_as2
 {
@@ -28,10 +29,14 @@ namespace Bit706_as2
             this.fee = newFee;
         }
 
+        public decimal InterestRate { get => interestRate; set => interestRate = value; }
+        public decimal Fee { get => fee; set => fee = value; }
+
         public decimal AddInterest()
         {
             decimal interest = balance * (interestRate / 100);
             balance += interest;
+            this.RecordTransaction($"Added {this.InterestRate}% to {this.Summary}");
             return interest;
         }
 

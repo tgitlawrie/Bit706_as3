@@ -23,6 +23,22 @@ namespace Bit706_as2
             lblCustID.Text = customer.ID.ToString();
             lblCustName.Text = customer.FirstName + " " + customer.LastName;
             Update();
+
+            lstAccounts.SelectedIndexChanged += lstAccounts_SelectedIndexChanged;
+        }
+
+        private void lstAccounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lstAccounts.SelectedValue != null)
+            {
+                lstHistory.Items.Clear();
+                int id = (int)lstAccounts.SelectedValue;
+                Account account = accountsController.FindAccountById(id);
+                foreach (string p in account.history)
+                {
+                    lstHistory.Items.Add(p);
+                }
+            }
         }
 
         private void btnDeposit_Click(object sender, EventArgs e)

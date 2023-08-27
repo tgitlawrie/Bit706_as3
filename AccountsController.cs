@@ -72,6 +72,7 @@ namespace Bit706_as2
         {
             Account account = FindAccountById(accountId);
             account.Deposit(amount);
+            account.RecordTransaction($"Deposited ${amount} into {account.Summary}");
             return true;
         }
 
@@ -87,6 +88,7 @@ namespace Bit706_as2
             {
                 throw new FailedTransactionException("insufficient funds");
             }
+            account.RecordTransaction($"Withdrew ${amount} from {account.Summary}");
             return true;
         }
 
@@ -136,10 +138,12 @@ namespace Bit706_as2
             if (account is Investment investment)
             {
                 investment.ApplyFee();
+                account.RecordTransaction($"Fee of ${investment.Fee} charged to {account.Summary}");
             }
             if (account is Omni omni)
             {
                 omni.ApplyFee();
+                account.RecordTransaction($"Fee of ${omni.Fee} charged to {account.Summary}");
             }
         }
 

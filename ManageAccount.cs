@@ -73,6 +73,11 @@ namespace Bit706_as2
                 if (transactionForm.ShowDialog() == DialogResult.OK)
                 {
                     decimal amount = transactionForm.GetAmount();
+                    if (amount <= 0)
+                    {
+                        MessageBox.Show("Amount must be greater than 0");
+                        return;
+                    }
                     try
                     {
                         accountsController.Withdraw(id, amount);
@@ -80,6 +85,8 @@ namespace Bit706_as2
                     catch (FailedTransactionException ex)
                     {
                         MessageBox.Show(ex.Message);
+                        accountsController.ApplyFee(id);
+                        Update();
                         return;
                     }
                     Update();
@@ -144,6 +151,16 @@ namespace Bit706_as2
             lstAccounts.ValueMember = "ID"; // set the ValueMember to ID
             lstAccounts.DisplayMember = "Summary"; // set the DisplayMember to Summary
             lstAccounts.DataSource = accounts; // set the DataSource to the accounts collection
+        }
+
+        private void btnInterest_Click_1(object sender, EventArgs e)
+        {
+            // do the fees
+            foreach (Account account in accounts)
+            {
+                accountsController.AddInterest(account.ID);
+            }
+            Update();
         }
     }
 }

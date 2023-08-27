@@ -68,7 +68,7 @@ namespace Bit706_as2
                 txtBalance.Text = "0.00";
                 MessageBox.Show("Invalid balance entered, Please enter a valid currency", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if(!accountsController.CreateAccount(AccountType, Customer.ID, amount))
+            if(!accountsController.CreateAccount(AccountType, Customer, amount))
             {
                 MessageBox.Show(accountsController.ErrorMessage);
                 return;

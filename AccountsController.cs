@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Bit706_as2
 {
@@ -16,26 +17,36 @@ namespace Bit706_as2
 
         public string ErrorMessage { get => errorMessage; set => errorMessage = value; }
 
-        public bool CreateAccount(string accountType, int customerID, decimal initialBalance = 0)
+        public bool CreateAccount(string accountType, Customer Customer, decimal initialBalance = 0)
         {
             Account newAccount;
             switch (accountType)
             {
                 case "Everyday":
-                    newAccount = new Everyday(customerID, initialBalance);
+                    newAccount = new Everyday(Customer.ID, initialBalance);
                     accounts.Add(newAccount);
                     break;
                 case "Investment":
-                    newAccount = new Investment(customerID, initialBalance);
+                    newAccount = new Investment(Customer.ID, initialBalance);
                     accounts.Add(newAccount);
                     break;
                 case "Omni":
-                    newAccount = new Omni(customerID, initialBalance);
+                    newAccount = new Omni(Customer.ID, initialBalance);
                     accounts.Add(newAccount);
                     break;
                 default:
                     throw new AccountException("Account Creation Error");
             }
+            if (Customer.IsStaff) 
+            { 
+                newAccount.FeeStrategy = new StaffFeeStrategy();
+            }
+            else
+            {
+                newAccount.FeeStrategy = new StandardFeeStrategy();
+            }
+
+
             NotifyObservers(newAccount);
             return true;
         }
@@ -67,7 +78,15 @@ namespace Bit706_as2
         public bool Withdraw(int accountId, decimal amount)
         {
             Account account = FindAccountById(accountId);
-            account.Withdraw(amount);
+            if (amount <= 0)
+            {
+                MessageBox.Show("Amount must be greater than 0");
+                return false;
+            }
+            if (!account.Withdraw(amount))
+            {
+                throw new FailedTransactionException("insufficient funds");
+            }
             return true;
         }
 
@@ -108,23 +127,20 @@ namespace Bit706_as2
                 omni.AddInterest();
                 return true;
             }
-            throw new Exception("Account does not have interest");
+            return true;
         }
 
-        public bool ApplyFee(int accountId)
+        public void ApplyFee(int accountId)
         {
             Account account = FindAccountById(accountId);
             if (account is Investment investment)
             {
                 investment.ApplyFee();
-                return true;
             }
             if (account is Omni omni)
             {
                 omni.ApplyFee();
-                return true;
             }
-            throw new Exception("Account does not have interest");
         }
 
         public string GetAccountInfo(int accountId)

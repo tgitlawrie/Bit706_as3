@@ -16,6 +16,8 @@ namespace Bit706_as2
         protected int customerId;
         protected decimal balance;
 
+        public FeeStrategy FeeStrategy { get; set; }
+
         public List<string> history = new List<string>();
 
         public Account()
@@ -59,8 +61,8 @@ namespace Bit706_as2
             }
             else
             {
+                return false;
                 throw new FailedTransactionException("Insufficient Funds");
-                //return false;
             }
         }
 
@@ -103,7 +105,7 @@ namespace Bit706_as2
                 {
                     type = "Everyday"; 
                 }
-                return $"Account ID: {ID}, Type: {type}, Balance: ${Balance}"; 
+                return $"Account ID: {ID}, Type: {type}, Balance: ${Math.Round(Balance, 2)}"; 
             }
         }
     }

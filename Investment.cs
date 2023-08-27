@@ -14,8 +14,8 @@ namespace Bit706_as2
         //transaction
 
         private readonly string accountType = "Investment";
-        private decimal interestRate; //
-        private decimal fee = 40.0m; //set default fee for failed transaction
+        private decimal interestRate = 4.0m; //hardcoded for this assessment
+        private decimal fee = 10.0m; //set default fee for failed transaction
 
         public Investment(int customerId, decimal newBalance) : base(customerId, newBalance) { }
         public Investment(int customerId, decimal newBalance, decimal newInterestRate) : this(customerId, newBalance)
@@ -35,9 +35,11 @@ namespace Bit706_as2
             return interest;
         }
 
+        // gets the strategy and applies fee
         public void ApplyFee()
         {
-            balance -= fee;
+            decimal rate = FeeStrategy.FeeRate();
+            balance -= fee * rate;
         }
 
         public override string Info()

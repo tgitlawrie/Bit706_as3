@@ -36,6 +36,7 @@
             this.btnTransfer = new System.Windows.Forms.Button();
             this.lstAccounts = new System.Windows.Forms.ListBox();
             this.btnAddAccount = new System.Windows.Forms.Button();
+            this.btnInterest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCustName
@@ -143,11 +144,28 @@
             this.btnAddAccount.UseVisualStyleBackColor = true;
             this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
+            // btnInterest
+            // 
+            this.btnInterest.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInterest.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
+            this.btnInterest.FlatAppearance.BorderSize = 2;
+            this.btnInterest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lavender;
+            this.btnInterest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(66)))), ((int)(((byte)(242)))));
+            this.btnInterest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInterest.Location = new System.Drawing.Point(17, 313);
+            this.btnInterest.Name = "btnInterest";
+            this.btnInterest.Size = new System.Drawing.Size(116, 56);
+            this.btnInterest.TabIndex = 21;
+            this.btnInterest.Text = "Apply Interest";
+            this.btnInterest.UseVisualStyleBackColor = true;
+            this.btnInterest.Click += new System.EventHandler(this.btnInterest_Click_1);
+            // 
             // ManageAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 411);
+            this.Controls.Add(this.btnInterest);
             this.Controls.Add(this.btnAddAccount);
             this.Controls.Add(this.lstAccounts);
             this.Controls.Add(this.btnTransfer);
@@ -166,6 +184,7 @@
             this.Controls.SetChildIndex(this.btnTransfer, 0);
             this.Controls.SetChildIndex(this.lstAccounts, 0);
             this.Controls.SetChildIndex(this.btnAddAccount, 0);
+            this.Controls.SetChildIndex(this.btnInterest, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +200,6 @@
         private System.Windows.Forms.Button btnTransfer;
         private System.Windows.Forms.ListBox lstAccounts;
         private System.Windows.Forms.Button btnAddAccount;
+        private System.Windows.Forms.Button btnInterest;
     }
 }

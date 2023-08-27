@@ -16,7 +16,7 @@ namespace Bit706_as2
         private readonly string accountType = "Omni";
         // account parameters set here as defaults
         private decimal interestRate = 4.0m;
-        private decimal fee = 20.0m; //set fee for failed transaction
+        private decimal fee = 10.0m; //set fee for failed transaction
         private decimal overdraft = 1000.0m; //set overdraft limit
 
         public Omni(int customerId, decimal newBalance) : base(customerId, newBalance) { }
@@ -57,10 +57,11 @@ namespace Bit706_as2
             return 0;
         }
 
+        // gets the FeeRate based on strategy and applies the fee
         public void ApplyFee()
         {
-            //do something to apply the fees
-            balance -= fee;
+            decimal rate = FeeStrategy.FeeRate();
+            balance -= fee * rate;
         }
         public override string Info()
         {

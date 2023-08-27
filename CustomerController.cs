@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,12 @@ namespace Bit706_as2
 
         public List<Customer> customerList = new List<Customer>();
         private CustomerValidator validator = new CustomerValidator();
+        private AccountsController accountsController;
+
+        public CustomerController(AccountsController accountsController)
+        {
+            this.accountsController = accountsController;
+        }
 
         public bool AddCustomer(string firstName, string lastName, string address, string city, string phone, string email, bool isStaff)
         {
@@ -47,7 +54,7 @@ namespace Bit706_as2
             {
                 return foundCustomer;
             }
-         
+
             return null;
         }
 
@@ -71,6 +78,19 @@ namespace Bit706_as2
                 foundCustomer.Phone = customer.Phone;
                 foundCustomer.Email = customer.Email;
                 foundCustomer.IsStaff = customer.IsStaff;
+
+                //update fee strategy for all accounts
+                foreach (Account account in accountsController.FindAccountByCustomer(customer.ID))
+                {
+                    if (customer.IsStaff)
+                    {
+                        account.FeeStrategy = new StaffFeeStrategy();
+                    }
+                    else
+                    {
+                        account.FeeStrategy = new StandardFeeStrategy();
+                    }
+                }
                 return true;
             }
             catch (Exception e)

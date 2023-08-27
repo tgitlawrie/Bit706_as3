@@ -15,8 +15,8 @@ namespace Bit706_as2
 {
     public partial class ParentForm : Form
     {
-        protected static CustomerController customerController = new CustomerController();
         protected static AccountsController accountsController = new AccountsController();
+        protected static CustomerController customerController = new CustomerController(accountsController); //passing accounts controller to customer Controller
         public ParentForm()
         {
             InitializeComponent();

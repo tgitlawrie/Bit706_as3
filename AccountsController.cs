@@ -17,6 +17,15 @@ namespace Bit706_as2
 
         public string ErrorMessage { get => errorMessage; set => errorMessage = value; }
 
+        
+        /// <summary>
+        /// Creates a new account to be associated with given customer
+        /// </summary>
+        /// <param name="accountType">Everyday,Investment or Omni</param>
+        /// <param name="Customer">customer object</param>
+        /// <param name="initialBalance">Decimal initial balance, defaults to 0</param>
+        /// <returns>true if creation is successful</returns>
+        /// <exception cref="AccountException">thrown when an invalid account type is provided</exception>
         public bool CreateAccount(string accountType, Customer Customer, decimal initialBalance = 0)
         {
             Account newAccount;
@@ -51,6 +60,11 @@ namespace Bit706_as2
             return true;
         }
 
+        /// <summary>
+        /// finds the accounts with the accountID
+        /// </summary>
+        /// <param name="accountId">Id number of the Account</param>
+        /// <returns>the account with a matching id</returns>
         public Account FindAccountById(int accountId)
         {
             Account account = accounts.Find(a => a.ID == accountId);
@@ -67,7 +81,12 @@ namespace Bit706_as2
             return accounts.Where(a => a.CustomerID == customerID).ToList();
         }
 
-
+        /// <summary>
+        /// Deposits a specified amount into an account with a matching id
+        /// </summary>
+        /// <param name="accountId">account ID</param>
+        /// <param name="amount">amount to deposit</param>
+        /// <returns>returns true if deposit is successful</returns>
         public bool Deposit(int accountId, decimal amount)
         {
             Account account = FindAccountById(accountId);
@@ -76,13 +95,19 @@ namespace Bit706_as2
             return true;
         }
 
+        /// <summary>
+        /// Withdraws a specified amount from an account with a matching id
+        /// </summary>
+        /// <param name="accountId">Account id</param>
+        /// <param name="amount">amount to withdraw</param>
+        /// <returns>returns true if withdraw is successful</returns>
+        /// <exception cref="FailedTransactionException">Throws Exception if the account balance is less than the withdraw amount</exception>
         public bool Withdraw(int accountId, decimal amount)
         {
             Account account = FindAccountById(accountId);
             if (amount <= 0)
             {
-                MessageBox.Show("Amount must be greater than 0");
-                return false;
+                throw new AccountException("Amount must be greater than 0");
             }
             if (!account.Withdraw(amount))
             {
@@ -92,6 +117,17 @@ namespace Bit706_as2
             return true;
         }
 
+        /// <summary>
+        /// transfers an amount from a from account and to a to account
+        /// uses withdraw()<see cref="Withdraw(int, decimal)"/> 
+        /// and 
+        /// Deposit() <see cref="Deposit(int, decimal)"/> 
+        /// </summary>
+        /// <param name="fromAccount">account to transfer from</param>
+        /// <param name="toAccount">account to transfer to</param>
+        /// <param name="amount">amount to transfer</param>
+        /// <returns>returns true if transfer is successful</returns>
+        /// <exception cref="AccountException">throws exceptions if transfer fails failure will likely be in the withdraw and deposit method</exception>
         public bool Transfer(int fromAccount, int toAccount, decimal amount)
         {
             Account from = FindAccountById(fromAccount);
@@ -112,6 +148,7 @@ namespace Bit706_as2
 
         /// <summary>
         /// calls add interest on appropriate accounts
+        /// <see cref="AddInterest(int)"/>
         /// </summary>
         /// <param name="accountId"></param>
         /// <returns>true if successfull</returns>
@@ -132,6 +169,10 @@ namespace Bit706_as2
             return true;
         }
 
+        /// <summary>
+        /// applies fees to affected accounts
+        /// </summary>
+        /// <param name="accountId">id of account to apply fees to</param>
         public void ApplyFee(int accountId)
         {
             Account account = FindAccountById(accountId);
@@ -147,12 +188,22 @@ namespace Bit706_as2
             }
         }
 
+        /// <summary>
+        /// gets account info based on provided account id
+        /// </summary>
+        /// <param name="accountId">account id</param>
+        /// <returns>returns a string with account info</returns>
         public string GetAccountInfo(int accountId)
         {
             Account account = FindAccountById(accountId);
             return account.Info();
         }
 
+        /// <summary>
+        /// gets a summary of an account based on provided account id
+        /// </summary>
+        /// <param name="accountId">account id</param>
+        /// <returns>returns a string containing account summary</returns>
         public string GetAccountSummary(int accountId)
         {
             Account account = FindAccountById(accountId);
@@ -162,11 +213,19 @@ namespace Bit706_as2
             return null;
         }
 
+        /// <summary>
+        /// Attaches an observer to the subject.
+        /// </summary>
+        /// <param name="observer">The observer to be attached.</param>
         public void AttachObserver(IObserver observer)
         {
             observers.Add(observer);
         }
 
+        /// <summary>
+        /// Notifies all attached observers of a change in state.
+        /// </summary>
+        /// <param name="a">The account that has changed state.</param>
         public void NotifyObservers(Account a)
         {
             foreach (IObserver obs in observers)

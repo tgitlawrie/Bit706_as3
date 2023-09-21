@@ -101,7 +101,7 @@ namespace Bit706_as2
                     catch (FailedTransactionException ex)
                     {
                         MessageBox.Show(ex.Message);
-                        accountsController.ApplyFee(id);
+                        //accountsController.ApplyFee(id);
                         Update();
                         return;
                     }

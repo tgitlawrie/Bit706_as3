@@ -22,6 +22,17 @@ namespace Bit706_as2
             this.accountsController = accountsController;
         }
 
+        /// <summary>
+        /// validates and creates a new customer object and adds it to the customer list in the customer controller
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="address"></param>
+        /// <param name="city"></param>
+        /// <param name="phone"></param>
+        /// <param name="email"></param>
+        /// <param name="isStaff"></param>
+        /// <returns>true if successful, false if validation fails</returns>
         public bool AddCustomer(string firstName, string lastName, string address, string city, string phone, string email, bool isStaff)
         {
             firstName = firstName.Trim().ToLower();
@@ -44,6 +55,11 @@ namespace Bit706_as2
             }
         }
 
+        /// <summary>
+        /// Finds a customer based on the id number of the passed customer string, this takes a string because thats what is returned from the listbox
+        /// </summary>
+        /// <param name="customer">customer as string</param>
+        /// <returns>Customer object for the given customer</returns>
         public Customer FindCustomerByID(string customer)
         {
             string[] inputs = customer.Split('|'); //seperates the id number from the name
@@ -58,6 +74,11 @@ namespace Bit706_as2
             return null;
         }
 
+        /// <summary>
+        /// Edits the customers details for the customer passed in as a parameter
+        /// </summary>
+        /// <param name="customer">Customer object for the customer to be edited</param>
+        /// <returns>true if successful, false if validation fails</returns>
         public bool EditCustomer(Customer customer)
         {
             Customer foundCustomer = customerList.FirstOrDefault(c => c.ID == customer.ID);
@@ -100,6 +121,11 @@ namespace Bit706_as2
             }
         }
 
+        /// <summary>
+        /// Deletes the customer that passed as a parameter
+        /// </summary>
+        /// <param name="customer">Customer object for the customer to be deleted</param>
+        /// <returns>true if successful, false if validation fails</returns>
         public bool DeleteCustomer(Customer customer)
         {
             try

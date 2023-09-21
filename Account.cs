@@ -61,8 +61,8 @@ namespace Bit706_as2
             }
             else
             {
+                //throw new FailedTransactionException("Insufficient Funds");
                 return false;
-                throw new FailedTransactionException("Insufficient Funds");
             }
         }
 

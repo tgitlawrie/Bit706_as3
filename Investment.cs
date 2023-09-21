@@ -47,6 +47,7 @@ namespace Bit706_as2
             balance -= fee * rate;
         }
 
+
         public override string Info()
         {
             return accountType

@@ -111,6 +111,7 @@ namespace Bit706_as2
             }
             if (!account.Withdraw(amount))
             {
+                ApplyFee(accountId);
                 throw new FailedTransactionException("insufficient funds");
             }
             account.RecordTransaction($"Withdrew ${amount} from {account.Summary}");

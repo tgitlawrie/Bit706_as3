@@ -1,0 +1,414 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/tlawrie/Dropbox/Documents/Course content/BIT706/as3/Bit706_as2",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "HdleEYuFKSNkSH7dkKaSR8/OM7moG2IZ+baqCUQLseE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "a91xdGYu11gYOhMPHzQRsn3ZTAwG0Dh/NchydcExwe0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "LGd7CjoBxjPsTGYOMg5Z3eoGwzLqQFkozhSJPakJ/Gg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.Account.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.Account.html",
+          "hash": "Ns+7IACE1Q3KF+TI4OLjGd2hjb+ie4dAQwboWei7WNU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.AccountCreate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.AccountCreate.html",
+          "hash": "HxDfIfudmvmHHjQdtxtEyJ5Z3sGZLTr0eQTls1Jw/yE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.AccountException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.AccountException.html",
+          "hash": "2/XDEy/w+Fu+AkWMc5GFy7hTE7nos2g0RhhxZ1zAw1w="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.AccountsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.AccountsController.html",
+          "hash": "ZPkXCxinmGuAyL6NUyejvZtHIiKoZ72b/+j/xcl4f7s="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.AddCustomerForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.AddCustomerForm.html",
+          "hash": "Jz/gdbRhWQNCOVgWdthjZZQfO62yYw3SzR6aCUwa4uc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.Customer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.Customer.html",
+          "hash": "cq4RYv+6A3tkHrgcXAFK8F/OPLFe7o1zNiLQYtnQj5g="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.CustomerController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.CustomerController.html",
+          "hash": "+Q8tcLsYFOLQdgngdjRXVp2YnE4ns3kB6gChulyCLdE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.DataIO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.DataIO.html",
+          "hash": "hFU6HFLMygrshlWe3HKM/E6yRVSlnah1YfqOO9Ldulg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.EditCustomer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.EditCustomer.html",
+          "hash": "5xRCnC6PTU67YHO76jT7OBLEyWLEYaxv2eSL7fStwwo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.Everyday.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.Everyday.html",
+          "hash": "o5ZQUFdZ+RrqM3VqbCMD+KylykjDC70+2/XkrrE5G18="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.FailedTransactionException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.FailedTransactionException.html",
+          "hash": "sDo+JQNmgi1iy4RoJWrwYvjnmnflX6APxYvp6v6ycq4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.FeeStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.FeeStrategy.html",
+          "hash": "nBieXu4kOnptHVHhe5HdrjoEDh7PcbmD2gJJRAZsnH0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.IObserver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.IObserver.html",
+          "hash": "bSFb5y0O70V9ct+xBVqMeOgEA5ERrsmnDtLrJVkhcYU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.ISubject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.ISubject.html",
+          "hash": "9UdM8wosfKpbg/z3F/hfkAhtE5K+aB79d81FDwDWsgk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.Investment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.Investment.html",
+          "hash": "TWR6ig7xyoNaFLwftdlimawQdrnDnxFkSyXfDqtJv90="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.MainForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.MainForm.html",
+          "hash": "m5A0zlpwcjlRkcVWvXeRi97TH7P7cR3asKhr4HxyvBc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.ManageAccount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.ManageAccount.html",
+          "hash": "0+g/cnInFIBMRHLzcbMW2dz/o40iSDIYqeH+pHWLm1o="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.ManageCustomers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.ManageCustomers.html",
+          "hash": "VrTpXpWQXtZOzSCq4toKlM1nrM6kjyQuQkZgxeXLKnU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.Omni.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.Omni.html",
+          "hash": "Twtjv9U2XmGdG5vqT7f440lBP6hligurvlSdzxuaPIA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.ParentForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.ParentForm.html",
+          "hash": "CzV+2qf/CoyLLVao3ZXVkyYsqIqOEisYP6epSWoKJ+U="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.StaffFeeStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.StaffFeeStrategy.html",
+          "hash": "RwQdi15hx440e6PyIFpPQMQaJoi+vIuJYpqgv0SPqtM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.StandardFeeStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.StandardFeeStrategy.html",
+          "hash": "4nOuA5lUtimpbpI0pAfK6Ue/ii7SZjvg5SBMaYm4YkY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.TransactionForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.TransactionForm.html",
+          "hash": "inEsllL8oE4gILMBVUs0TgaijD8GEu0FSjdx5oi8rTk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Bit706_as2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Bit706_as2.html",
+          "hash": "AfKRw5AjNImm17h7NVCCzeCLnDkpLSQsab7omHIUWNM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "xJAO7Xyh/hqm1bwNZ4Jstxf/47LkGLfoyWrG35mJlyI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "Oa9PuD4E1hvZnCkVjUgzNBX6S00Zo5YilamTERTZo54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 24,
+          "skipped_file_count": 24
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
